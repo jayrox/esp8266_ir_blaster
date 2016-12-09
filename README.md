@@ -7,3 +7,5 @@ These specific parts can be sourced from anywhere but to help make sure you get 
   * [Solderless Breadboard](https://www.amazon.com/BB400-Solderless-Plug-BreadBoard-tie-points/dp/B0040Z1ERO)
   * [2N2222](https://www.amazon.com/gp/product/B00R1M3DA4/)
   * 2x [940nm IR LED](https://www.amazon.com/LED-Infrared-940nm-25-pack/dp/B00GC585IQ/)
+
+![Top down view of build](/schematic.jpg "Top down view")
