@@ -12,3 +12,9 @@ These specific parts can be sourced from anywhere but to help make sure you get 
   * 2x [940nm IR LED](https://www.amazon.com/LED-Infrared-940nm-25-pack/dp/B00GC585IQ/)
 
 ![Top down view of build](/schematic.jpg "Top down view")
+
+
+```
+Sketch uses 243,427 bytes (23%) of program storage space. Maximum is 1,044,464 bytes.
+Global variables use 37,400 bytes (45%) of dynamic memory, leaving 44,520 bytes for local variables. Maximum is 81,920 bytes.
+```
