@@ -1,0 +1,17 @@
+homeassistant:
+  name: Home
+  unit_system: metric
+  # etc
+
+  # Change the switch from a toggle to two buttons
+  customize:
+    switch.tv_volume:
+      assumed_state: true
+
+# Switch
+switch:
+  - platform: rest
+    resource: http://192.168.200.135:80/irTVvrest
+    name: "TV Volume"
+    body_on: "volup"
+    body_off: "voldn"
