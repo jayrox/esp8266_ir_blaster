@@ -1,5 +1,8 @@
-# esp8266_ir_blaster
+# esp8266 IR Blaster
 esp8266 powered IR blaster
+
+# Purpose
+IR Blaster to help automate your home by sending IR commands to your entertainment system using a HTTP API intended to be used with [Home-Assistant](https://home-assistant.io)
 
 # Parts
 These specific parts can be sourced from anywhere but to help make sure you get the part you need, the list is below.
