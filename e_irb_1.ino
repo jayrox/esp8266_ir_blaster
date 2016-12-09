@@ -1,5 +1,5 @@
 /*
- * WiFi IR Blaster by Buddy Crotty
+ * WiFi IR Blaster by Buddy Crotty modified by Jason Boehm
  *  Use an ESP8266 module or dev board to receive HTTP GET request
  *  and then send IR codes to an attached IR LED based on those requests.
  *  This works best with another web server acting as a front end that 
@@ -116,7 +116,7 @@ void loop() {
   // init a counter, if counter is <= 20, time out the connection.
   Serial.println("new client");
   int i = 0;
-  while(!client.available() && i <= 20){
+  while(!client.available() && i <= 200){
     i++;
     Serial.print(".");
     delay(1);
@@ -126,6 +126,18 @@ void loop() {
   // Read the first line of the request
   String req = client.readStringUntil('\r');
   Serial.println(req);
+
+  int action = 0;
+  if(req.indexOf("POST /irTVvrest") != -1){
+    String postbody = client.readStringUntil('}');
+    if (postbody.indexOf("volup") != -1){
+      action = 1;
+    }
+    else if(postbody.indexOf("voldn") != -1){
+      action = 2;
+    }
+  }
+  
   client.flush();
   
   // Match the request
@@ -148,6 +160,17 @@ void loop() {
   else if (req.indexOf("/irTVvup") != -1){
       irsend.sendRaw(irTVvup, sizeof(irTVvup) / sizeof(irTVvup[0]), khz);   
       Serial.println("IRreq irTVvup sent");
+  }
+  else if (req.indexOf("/irTVvrest") != -1){
+      Serial.println("IRreq irTVvrest sent");
+      if (action == 1) {
+        irsend.sendRaw(irTVvup, sizeof(irTVvup) / sizeof(irTVvup[0]), khz);
+        Serial.println("IRreq irTVvup sent");
+      }
+      else if (action == 2) {
+        irsend.sendRaw(irTVvdn, sizeof(irTVvdn) / sizeof(irTVvdn[0]), khz);   
+        Serial.println("IRreq irTVvdn sent");
+      }
   }
   else if (req.indexOf("/irTVchup") != -1){
       irsend.sendRaw(irTVchup, sizeof(irTVchup) / sizeof(irTVchup[0]), khz);   
