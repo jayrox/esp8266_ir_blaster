@@ -17,7 +17,7 @@ MDNSResponder mdns;
 
 int khz = 38; // 38kHz carrier frequency for both NEC and Samsung
 
-IRsend irsend(13); //an IR led is connected to GPIO16 (pin D2 on NodeMCU)
+IRsend irsend(13); //an IR led is connected to GPIO13
 
   // Insert RAW IR signal for "TV Power"
 unsigned int irTVpwr[] = {4650,4250, 700,1550, 650,1550, 700,1550, 650,450, 650,500, 600,500, 600,500, 600,550, 550,1700, 550,1650, 600,1650, 550,550, 600,500, 600,550, 550,550, 600,500, 600,550, 550,1650, 600,550, 550,550, 600,500, 600,550, 550,550, 600,500, 600,1650, 600,500, 600,1650, 550,1700, 550,1650, 600,1650, 550,1650, 600,1650, 600};  // SAMSUNG E0E040BF
@@ -113,7 +113,7 @@ void loop() {
   }
   
   // Wait until the client sends some data
-  // init a counter, if counter is <= 20, time out the connection.
+  // init a counter, if counter is <= 200, time out the connection.
   Serial.println("new client");
   int i = 0;
   while(!client.available() && i <= 200){
