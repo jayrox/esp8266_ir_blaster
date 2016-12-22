@@ -18,3 +18,7 @@ These specific parts can be sourced from anywhere but to help make sure you get 
 Sketch uses 243,427 bytes (23%) of program storage space. Maximum is 1,044,464 bytes.
 Global variables use 37,400 bytes (45%) of dynamic memory, leaving 44,520 bytes for local variables. Maximum is 81,920 bytes.
 ```
+
+----
+# Samsung IR codes
+http://www.remotecentral.com/cgi-bin/mboard/rc-discrete/thread.cgi?5780
