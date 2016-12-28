@@ -82,7 +82,7 @@ void setup() {
   //WiFiManager
   //Local intialization. Once its business is done, there is no need to keep it around
   WiFiManager wifiManager;
-  //reset saved settings
+  //reset saved settings, you'll probably want to comment this out or remove it all together.
   wifiManager.resetSettings();
   
   //fetches ssid and pass from eeprom and tries to connect
