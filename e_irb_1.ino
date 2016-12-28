@@ -121,7 +121,7 @@ void loop() {
   
   // Wait until the client sends some data
   // init a counter, if counter is <= 2000, time out the connection.
-  Serial.println("new client");
+  Serial.println("New client");
   int i = 0;
   while(!client.available() && i <= 2000){
     i++;
@@ -230,33 +230,29 @@ void loop() {
       irsend.sendRaw(irRECvup, sizeof(irRECvup) / sizeof(irRECvup[0]), khz);   
       Serial.println("IRreq irRECvup sent");
   }
-  else if (req.indexOf("/favicon.ico") != -1){
-      client.print("HTTP/1.1 404 Not found\r\n");
-      client.stop();
-  }
   else if (req.indexOf("/list") != -1){
       client.print("HTTP/1.1 200 OK\r\n\r\n");
       client.print("Available Options:\r\n\r\n");
-      client.print("/irTVpwr\t- toggle power\r\n");
-      client.print("/irTVsrc\t- change source\r\n");
-      client.print("/irTVmute\t- mute\r\n");
-      client.print("/irTVvup\t- volume up\r\n");
-      client.print("/irTVvdn\t- volume down\r\n");
-      client.print("/irTVchup\t- channel up\r\n");
-      client.print("/irTVchdn\t- channel down\r\n");
-      client.print("/irALLpwr\t- all power\r\n");
-      client.print("/irRECpwr\t- receiver toggle power\r\n");
-      client.print("/irRECpwrON\t- receiver power on\r\n");
-      client.print("/irRECpwrOFF\t- receiver power off\r\n");
-      client.print("/irRECmute\t- receiver mute\r\n");
-      client.print("/irRECvdn\t- receiver volume down\r\n");
-      client.print("/irRECvup\t- receiver volume up\r\n");
-      client.print("/list\t\t- this list\r\n");
+      client.print("/irTVpwr\t- Toggle power\r\n");
+      client.print("/irTVsrc\t- Change source\r\n");
+      client.print("/irTVmute\t- Mute\r\n");
+      client.print("/irTVvup\t- Volume up\r\n");
+      client.print("/irTVvdn\t- Volume down\r\n");
+      client.print("/irTVchup\t- Channel up\r\n");
+      client.print("/irTVchdn\t- Channel down\r\n");
+      client.print("/irALLpwr\t- All power\r\n");
+      client.print("/irRECpwr\t- Receiver toggle power\r\n");
+      client.print("/irRECpwrON\t- Receiver power on\r\n");
+      client.print("/irRECpwrOFF\t- Receiver power off\r\n");
+      client.print("/irRECmute\t- Receiver mute\r\n");
+      client.print("/irRECvdn\t- Receiver volume down\r\n");
+      client.print("/irRECvup\t- Receiver volume up\r\n");
+      client.print("/list\t\t- This list\r\n");
 
       client.stop();
   }
   else {
-    Serial.println("invalid request");
+    Serial.println("Invalid request");
     client.print("HTTP/1.1 404 Not Found\r\n\r\n");
     client.print("404 Not Found");
     client.stop();
