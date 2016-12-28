@@ -250,6 +250,7 @@ void loop() {
       client.print("/list\t\t- This list\r\n");
 
       client.stop();
+      return;
   }
   else {
     Serial.println("Invalid request");
