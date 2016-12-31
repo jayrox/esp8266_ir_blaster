@@ -120,6 +120,10 @@ void setup() {
 }
 
 void loop() {
+  /*
+   * ESPOTA server 
+   * https://github.com/jayrox/espota
+  */
   timePassed = millis() - timeCounter;
   if(timePassed >= 10000) {
     Serial.println("Checking firmware for update.");
